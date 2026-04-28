@@ -60,6 +60,4 @@ Mantenibilidad: El código repetido se centralizó en Handlers y Repositorios, p
 Notas de Entrega
 Backend: Finalizado y funcional (Identity + Ordering).
 
-Frontend: Entrega programada para el 29 de abril (Angular).
-
 Base de Datos: Schema diseñado en PostgreSQL optimizado para el nuevo flujo modular.
