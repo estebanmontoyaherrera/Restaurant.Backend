@@ -19,7 +19,7 @@ Base de Datos: PostgreSQL 17 (Containerized)
 
 Infraestructura: Docker Compose
 
-Frontend: Angular (Entrega: 29 de abril)
+Frontend: Angular (Entrega: 30 de abril)
 
 📦 Instrucciones de Levantamiento
 1. Requisitos
