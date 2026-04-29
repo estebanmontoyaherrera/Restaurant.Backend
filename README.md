@@ -40,6 +40,15 @@ dotnet run --project src/Api/Restaurant.Api
 
 Acceda a la documentación en: https://localhost:7037/swagger/index.html
 
+### 🔐 Autenticación y Pruebas (Swagger)
+Para probar los endpoints protegidos, siga estos pasos:
+1. **Iniciar Sesión**: Use el endpoint `POST /api/Auth/Login` con las siguientes credenciales:
+   - **Email**: `admin@gmail.com`
+   - **Password**: `12345`
+2. **Obtener Token**: Copie el valor del `accessToken` de la respuesta JSON.
+3. **Autorizar**: Haga clic en el botón **"Authorize"** (icono de candado) en la parte superior de Swagger.
+4. **Configurar**: Escriba el token en el campo de valor y haga clic en Authorize.
+
 🔄 Proceso de Migración (Solución de Requisitos)
 Siguiendo las especificaciones de la prueba, se resolvieron las deficiencias del sistema original:
 
