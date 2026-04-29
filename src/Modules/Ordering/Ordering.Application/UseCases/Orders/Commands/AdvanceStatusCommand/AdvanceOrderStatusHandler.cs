@@ -24,9 +24,13 @@ public class AdvanceOrderStatusHandler(IUnitOfWork unitOfWork) : ICommandHandler
 
             if (order.Status == "Abierto")
             {
-                var hasItems = _unitOfWork.OrderDetails.GetAllQueryable().Any(x => x.OrderId == request.OrderId);
+                // Se agrega la validación de x.State == 1 para platos activos
+                var hasItems = _unitOfWork.OrderDetails.GetAllQueryable()
+                    .Any(x => x.OrderId == request.OrderId && x.State == "1");
+
                 if (!hasItems)
                     throw new Exception("El pedido debe contener al menos un artículo antes de pasar a la fase de preparación.");
+
                 order.Status = "En Preparación";
             }
             else if (order.Status == "En Preparación")
@@ -36,11 +40,13 @@ public class AdvanceOrderStatusHandler(IUnitOfWork unitOfWork) : ICommandHandler
             else if (order.Status == "Entregado")
                 order.Status = "Cerrado";
             else
-                throw new Exception("El estado del pedido no se puede avanzar.");   
+                throw new Exception("El estado del pedido no se puede avanzar.");
+
             _unitOfWork.Orders.UpdateAsync(order);
             await _unitOfWork.SaveChangesAsync();
 
             response.IsSuccess = true;
+            response.Data = true;
             response.Message = "El estado del pedido se ha avanzado correctamente.";
         }
         catch (Exception ex)
