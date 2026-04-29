@@ -2,12 +2,12 @@
 -- PostgreSQL database dump
 --
 
-\restrict 85yw2lq9x5CwLSKsOnN0Ogho6aK01g4M4CQU61cI1V0G2exnbSi5UkH3Zhjv7XW
+\restrict mlnmc0TCzjfojwhao7PCoAjDWYFHpc88t2qNYRgRFVbIryyiLixKYbWTtynza4c
 
 -- Dumped from database version 18.3
 -- Dumped by pg_dump version 18.3
 
--- Started on 2026-04-28 15:40:57
+-- Started on 2026-04-28 23:54:14
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -458,15 +458,10 @@ COPY public."MenuRoles" ("MenuId", "RoleId", "State", "AuditCreateUser", "AuditC
 --
 
 COPY public."Menus" ("MenuId", "Position", "Name", "Icon", "Url", "FatherId", "State", "AuditCreateUser", "AuditCreateDate", "AuditUpdateUser", "AuditUpdateDate", "AuditDeleteUser", "AuditDeleteDate") FROM stdin;
-1	1	Estadísticas	dashboard	panel	\N	1	1	2024-04-30 09:49:15-05	\N	\N	\N	\N
-3	3	Catálogo	display_settings	\N	\N	1	1	2024-04-30 09:49:50-05	\N	\N	\N	\N
 6	6	Proveedores	app_registration	registro-auditoria	\N	1	1	2024-04-30 10:07:50-05	\N	\N	\N	\N
 7	7	Clientes	autorenew	suscripcion	\N	1	1	2024-04-30 10:07:25-05	\N	\N	\N	\N
 8	8	Procesos	category	\N	\N	1	1	2024-04-30 09:51:25-05	\N	\N	\N	\N
 11	11	Configuración	tune	\N	\N	1	1	2024-04-30 00:00:00-05	\N	\N	\N	\N
-2	2	Almacenes	manage_accounts	roles	3	1	1	2024-04-30 09:55:26-05	\N	\N	\N	\N
-4	4	Categorías	group	usuarios	3	1	1	2024-04-30 10:05:25-05	\N	\N	\N	\N
-5	5	Productos	storage	lenguajes	3	1	1	2024-04-30 10:06:25-05	\N	\N	\N	\N
 9	9	Proceso de Compras	visibility	visual-settings	8	1	1	2024-04-30 10:09:48-05	\N	\N	\N	\N
 10	10	Proceso de Ventas	language	webhook-subscriptions	8	1	1	2024-04-30 10:10:53-05	\N	\N	\N	\N
 12	12	Usuarios	group	users	11	1	1	2024-04-30 10:11:56-05	\N	\N	\N	\N
@@ -475,6 +470,11 @@ COPY public."Menus" ("MenuId", "Position", "Name", "Icon", "Url", "FatherId", "S
 15	15	Rol de Usuarios	admin_panel_settings	role-users	11	1	1	2025-02-09 16:26:30-05	\N	\N	\N	\N
 16	17	Roles	manage_accounts	roles	11	0	1	2025-02-09 16:59:56-05	\N	\N	\N	\N
 17	19	Rol de usuarios	admin_panel_settings	role-users	11	0	1	2025-02-09 16:35:10-05	\N	\N	\N	\N
+1	1	Inicio	dashboard	panel	\N	1	1	2024-04-30 09:49:15-05	\N	\N	\N	\N
+3	3	Pedidos	receipt	\N	\N	1	1	2024-04-30 09:49:50-05	\N	\N	\N	\N
+2	2	Platos	restaurant_menu	dishes	3	1	1	2024-04-30 09:55:26-05	\N	\N	\N	\N
+4	4	Ordenes	assignment	orders	3	1	1	2024-04-30 10:05:25-05	\N	\N	\N	\N
+5	5	Reportes	storage	reports	3	1	1	2024-04-30 10:06:25-05	\N	\N	\N	\N
 \.
 
 
@@ -546,6 +546,17 @@ COPY public."OrderDetails" ("OrderDetailId", "OrderId", "DishId", "Quantity", "U
 59	17	21	1	12000.00		1	2026-04-27 19:48:59-05	1	2026-04-27 19:48:59-05	\N	\N	1
 60	18	10	3	22000.00		1	2026-04-27 19:48:59-05	1	2026-04-27 19:48:59-05	\N	\N	1
 61	18	20	3	4000.00	bien frías	1	2026-04-27 19:48:59-05	1	2026-04-27 19:48:59-05	\N	\N	1
+62	19	2	1	10000.00	\N	1	2026-04-28 22:16:35.433906-05	\N	\N	\N	\N	1
+63	19	1	2	12000.00	CON SALSA	1	2026-04-28 22:16:57.056676-05	\N	\N	\N	\N	1
+64	20	7	2	24000.00	\N	1	2026-04-28 22:20:43.309593-05	\N	\N	\N	\N	1
+65	20	4	1	15000.00	\N	1	2026-04-28 22:20:55.189891-05	\N	\N	\N	\N	1
+66	20	1	6	12000.00	\N	1	2026-04-28 22:23:02.963976-05	1	2026-04-28 22:33:36.524024-05	\N	\N	1
+67	20	2	1	10000.00	\N	1	2026-04-28 22:33:48.523789-05	\N	\N	\N	\N	1
+68	20	20	1	4000.00	\N	1	2026-04-28 22:34:00.823403-05	\N	\N	\N	\N	1
+70	21	1	3	12000.00	\N	1	2026-04-28 22:58:56.541049-05	\N	\N	\N	\N	1
+71	21	25	1	22000.00	\N	1	2026-04-28 23:13:18.127901-05	\N	\N	\N	\N	1
+72	21	6	1	28000.00	SIN FRIJOLES	1	2026-04-28 23:14:39.10125-05	\N	\N	\N	\N	1
+69	21	20	3	4000.00	\N	1	2026-04-28 22:50:11.704421-05	1	2026-04-28 23:31:21.795985-05	\N	\N	1
 \.
 
 
@@ -574,6 +585,9 @@ COPY public."Orders" ("OrderId", "TableNumber", "WaiterName", "Status", "AuditCr
 16	5	María	Abierto	1	2026-04-27 19:18:59.21-05	1	2026-04-27 19:18:59.21-05	\N	\N	1
 17	12	Carlos	En Preparación	1	2026-04-27 19:03:59.21-05	1	2026-04-27 19:03:59.21-05	\N	\N	1
 18	8	Andrea	Listo	1	2026-04-27 19:28:59.21-05	1	2026-04-27 19:28:59.21-05	\N	\N	1
+19	4	ESTEBAN	En Preparación	1	2026-04-28 22:16:01.549098-05	1	2026-04-28 22:19:06.242964-05	1	2026-04-28 22:19:20.374223-05	1
+20	1	ESTEBAN MONTOYA	Cerrado	1	2026-04-28 22:20:28.91937-05	1	2026-04-28 22:37:35.475254-05	\N	\N	1
+21	2	JUAN	Cerrado	1	2026-04-28 22:49:54.742089-05	1	2026-04-28 23:31:42.934208-05	\N	\N	1
 \.
 
 
@@ -694,6 +708,14 @@ bfc1284f-e430-41a6-9dcf-eda1ae0dac83	dDl+jLN3rpVDrTpJFwbeBBF/obnFmRzezNByLAqnrb4
 baeef0c9-d2c0-43a0-9129-b141d10c0c6c	Q9qGAl5pyJlhuTA9QCtg2qzfskBoekV1nYMzDo2MArg=	1	2026-05-05 11:47:20.293772-05
 7fab2627-091e-4916-9ac2-6ef9cf758957	KMqM2gkQ9YaCITm38dF64aYERV9aOGQsc31M2mM7ejg=	1	2026-05-05 11:54:27.133028-05
 73db597f-39ef-43e1-9d7e-23cc06902070	If4I8l/IacdqFiTA2Kz0RmosGYKRUEgVXW9oPVr+ZDM=	1	2026-05-05 12:25:38.311926-05
+309162ee-8f7c-4867-845c-5c32532d09a7	GtzCfGR0GwZXczLfZoT1dSL4F+dTAwb/DiEun3VNf9U=	1	2026-05-05 16:03:37.743408-05
+ad02edd5-05ff-45ce-943b-e8406f23a74e	T6jby2kDk1Hkn4ZK6mgjewolkW3DcdyMNgFXenXiBc4=	1	2026-05-05 19:04:47.213176-05
+181747c5-ea51-479e-8ff1-10704f5cfe5b	/xEpyLNv4vuL3eSVAzk89+EcPfk0wfj/qjLerfWZhxU=	1	2026-05-05 19:40:46.293543-05
+7206c49c-b291-4751-afc7-bbd8e327d440	sc3XBD3xIEu4Bl+M7zNiYHZKXHltgsbo0V28Uxw03Gc=	1	2026-05-05 19:52:35.588649-05
+a36f9eff-1109-4712-87c3-da0b3869ac5d	qbkTM5VeQmwMPijBT7fgNxIBvthvbKG1zxzJAdizyvw=	1	2026-05-05 21:31:48.999058-05
+40129d93-93cd-4e3e-a19f-d30ef5621e8e	+LwKTe/sOaGst5Pmqm5iJgo+WCdwGoDniuor9mc/wVk=	1	2026-05-05 21:31:50.214872-05
+98bb9a94-c65b-4d7e-a841-ca003abf4910	2bTkGOimhhV1G2A6/GS+9tr/bYojrcZzVHeO6QCmRHc=	1	2026-05-05 22:12:00.383267-05
+0b7c5ffd-8f42-4561-8696-d9e246735fb5	YKfkT+KT4ciM0iZd0oe+x5Su0cm9dxauUCrTwFjAmpA=	1	2026-05-05 23:17:48.332146-05
 \.
 
 
@@ -844,7 +866,7 @@ SELECT pg_catalog.setval('public."Menus_MenuId_seq"', 17, true);
 -- Name: OrderDetails_OrderDetailId_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public."OrderDetails_OrderDetailId_seq"', 61, true);
+SELECT pg_catalog.setval('public."OrderDetails_OrderDetailId_seq"', 72, true);
 
 
 --
@@ -853,7 +875,7 @@ SELECT pg_catalog.setval('public."OrderDetails_OrderDetailId_seq"', 61, true);
 -- Name: Orders_OrderId_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public."Orders_OrderId_seq"', 18, true);
+SELECT pg_catalog.setval('public."Orders_OrderId_seq"', 21, true);
 
 
 --
@@ -1170,11 +1192,11 @@ ALTER TABLE ONLY public."UserRoles"
     ADD CONSTRAINT "FK_UserRoles_Users_UserId" FOREIGN KEY ("UserId") REFERENCES public."Users"("UserId") ON DELETE CASCADE;
 
 
--- Completed on 2026-04-28 15:40:57
+-- Completed on 2026-04-28 23:54:15
 
 --
 -- PostgreSQL database dump complete
 --
 
-\unrestrict 85yw2lq9x5CwLSKsOnN0Ogho6aK01g4M4CQU61cI1V0G2exnbSi5UkH3Zhjv7XW
+\unrestrict mlnmc0TCzjfojwhao7PCoAjDWYFHpc88t2qNYRgRFVbIryyiLixKYbWTtynza4c
 

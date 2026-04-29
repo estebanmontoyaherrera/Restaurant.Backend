@@ -13,7 +13,7 @@ public class OrderMapping : IRegister
     {
         config.NewConfig<Order, OrderResponseDto>()
           .Map(dest => dest.OrderId, src => src.Id)
-          .Map(dest => dest.StateDescription, src => src.State == "1" ? "Enabled" : "Disabled")
+          .Map(dest => dest.StateDescription, src => src.State == "1" ? "Activo" : "Inactivo")
           .TwoWays();
 
         config.NewConfig<Order, OrderByIdResponseDto>()

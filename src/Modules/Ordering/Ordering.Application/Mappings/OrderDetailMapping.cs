@@ -14,7 +14,7 @@ public class OrderDetailMapping : IRegister
         config.NewConfig<OrderDetail, OrderDetailResponseDto>()
           .Map(dest => dest.OrderDetailId, src => src.Id)
           .Map(dest => dest.Subtotal, src => src.Quantity * src.UnitPrice)
-          .Map(dest => dest.StateDescription, src => src.State == "1" ? "Enabled" : "Disabled")
+          .Map(dest => dest.StateDescription, src => src.State == "1" ? "Activo" : "Inactivo")
           .TwoWays();
 
         config.NewConfig<OrderDetail, OrderDetailByIdResponseDto>()
