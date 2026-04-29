@@ -32,9 +32,12 @@ El docker-compose.yml incluido levanta automáticamente PostgreSQL 17. Ejecute:
 
 Bash
 docker-compose up -d
+
 3. Ejecución del API
 Bash
+
 dotnet run --project src/Api/Restaurant.Api
+
 Acceda a la documentación en: https://localhost:7037/swagger/index.html
 
 🔄 Proceso de Migración (Solución de Requisitos)
