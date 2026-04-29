@@ -2,30 +2,37 @@ services:
   postgres:
     image: postgres:17
     container_name: buen_sazon_db
-
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 12345
       POSTGRES_DB: Restaurant
-
     ports:
       - "5432:5432"
-
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./db/init:/docker-entrypoint-initdb.d
 
+  # TU API CONECTADA A POSTGRES
+  api:
+    build: .
+    container_name: buen_sazon_api
+    depends_on:
+      - postgres
+    environment:
+      # Las variables de entorno sobreescriben el localhost del appsettings.json
+      - ConnectionStrings__OrderingConnection=Host=postgres;Port=5432;Database=Restaurant;User Id=postgres;Password=12345
+      - ConnectionStrings__IdentityConnection=Host=postgres;Port=5432;Database=Restaurant;User Id=postgres;Password=12345
+    ports:
+      - "8080:8080"
+
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin
-
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: admin123
-
     ports:
       - "5050:80"
-
     depends_on:
       - postgres
 
