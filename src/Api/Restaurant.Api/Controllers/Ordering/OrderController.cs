@@ -1,12 +1,14 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Ordering.Application.Dtos.OrderDetails;
 using Ordering.Application.Dtos.Orders;
 using Ordering.Application.Dtos.Reports;
 using Ordering.Application.Interfaces.Services;
-using Ordering.Application.UseCases.Orders.Commands.AdvanceStatusCommand;
 using Ordering.Application.UseCases.OrderDetails.Commands.CreateCommand;
 using Ordering.Application.UseCases.OrderDetails.Commands.DeleteCommand;
 using Ordering.Application.UseCases.OrderDetails.Commands.UpdateCommand;
+using Ordering.Application.UseCases.OrderDetails.Queries.GetByIdQuery;
+using Ordering.Application.UseCases.Orders.Commands.AdvanceStatusCommand;
 using Ordering.Application.UseCases.Orders.Commands.CreateCommand;
 using Ordering.Application.UseCases.Orders.Commands.DeleteCommand;
 using Ordering.Application.UseCases.Orders.Commands.UpdateCommand;
@@ -132,6 +134,20 @@ public class OrderController(IDispatcher dispatcher, IExcelService excelService,
     public async Task<IActionResult> OrderDelete(int orderId)
     {
         var response = await _dispatcher.Dispatch<DeleteOrderCommand, bool>(new DeleteOrderCommand { OrderId = orderId }, CancellationToken.None);
+        return Ok(response);
+    }
+
+    [HttpGet("/orders/{orderId:int}/items")]
+    public async Task<IActionResult> GetOrderItems(int orderId)
+    {
+        var response = await _dispatcher.Dispatch<
+            GetOrderDetailsByOrderIdQuery,
+            IEnumerable<OrderDetailResponseDto>
+        >(
+            new GetOrderDetailsByOrderIdQuery { OrderId = orderId },
+            CancellationToken.None
+        );
+
         return Ok(response);
     }
 }
