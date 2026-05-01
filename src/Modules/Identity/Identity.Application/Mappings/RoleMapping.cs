@@ -13,7 +13,7 @@ public class RoleMapping : IRegister
     {
         config.NewConfig<Role, RoleResponseDto>()
           .Map(dest => dest.RoleId, src => src.Id)
-          .Map(dest => dest.StateDescription, src => src.State == "1" ? "Enabled" : "Disabled")
+          .Map(dest => dest.StateDescription, src => src.State == "1" ? "Activo" : "Inactivo")
           .TwoWays();
 
         config.NewConfig<Role, RoleByIdResponseDto>()

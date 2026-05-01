@@ -14,7 +14,7 @@ public class UserRoleMapping : IRegister
           .Map(dest => dest.UserRoleId, src => src.Id)
           .Map(dest => dest.User, src => src.User.FirstName + " " + src.User.LastName)
           .Map(dest => dest.Role, src => src.Role.Name)
-          .Map(dest => dest.StateDescription, src => src.State == "1" ? "Enabled" : "Disabled")
+          .Map(dest => dest.StateDescription, src => src.State == "1" ? "Activo" : "Inactivo")
           .TwoWays();
 
         config.NewConfig<UserRole, UserRoleByIdResponseDto>()

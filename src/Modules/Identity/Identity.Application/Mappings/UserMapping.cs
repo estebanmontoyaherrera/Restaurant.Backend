@@ -13,7 +13,7 @@ public class UserMapping : IRegister
     {
         config.NewConfig<User, UserResponseDto>()
           .Map(dest => dest.UserId, src => src.Id)
-          .Map(dest => dest.StateDescription, src => src.State == "1" ? "Enabled" : "Disabled")
+          .Map(dest => dest.StateDescription, src => src.State == "1" ? "Activo" : "Inactivo")
           .TwoWays();
 
         config.NewConfig<User, UserByIdResponseDto>()
