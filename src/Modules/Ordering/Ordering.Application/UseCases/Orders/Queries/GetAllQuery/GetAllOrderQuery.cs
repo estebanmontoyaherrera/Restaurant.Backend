@@ -4,4 +4,7 @@ using SharedKernel.Commons.Bases;
 
 namespace Ordering.Application.UseCases.Orders.Queries.GetAllQuery;
 
-public class GetAllOrderQuery : BaseFilters, IQuery<IEnumerable<OrderResponseDto>> { }
+public class GetAllOrderQuery : BaseFilters, IQuery<IEnumerable<OrderResponseDto>> {
+
+    public string? StatusFilter { get; set; } 
+}

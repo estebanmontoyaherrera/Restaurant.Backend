@@ -6,5 +6,7 @@ namespace Ordering.Application.UseCases.Dishes.Queries.GetAllQuery;
 
 public class GetAllDishQuery : BaseFilters, IQuery<IEnumerable<DishResponseDto>>
 {
+    public string? Name { get; set; }        
     public string? Category { get; set; }
+  
 }
