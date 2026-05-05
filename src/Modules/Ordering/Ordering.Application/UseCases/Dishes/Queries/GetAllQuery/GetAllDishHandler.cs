@@ -24,28 +24,36 @@ public class GetAllDishHandler(IUnitOfWork unitOfWork, IOrderingQuery orderingQu
         {
             var dishes = _unitOfWork.Dishes.GetAllQueryable();
 
-            // ✅ Filtro por Nombre (ANTES NO EXISTÍA)
+            
             if (!string.IsNullOrWhiteSpace(request.Name))
             {
                 var name = request.Name.Trim().ToLower();
                 dishes = dishes.Where(x => x.Name.ToLower().Contains(name));
             }
 
-            // ✅ Filtro por Categoría (ANTES ERA EXACTO)
             if (!string.IsNullOrWhiteSpace(request.Category))
             {
                 var category = request.Category.Trim().ToLower();
                 dishes = dishes.Where(x => x.Category.ToLower().Contains(category));
             }
 
-            // ✅ Filtro por Estados (SE MANTIENE IGUAL)
+            
+            if (!string.IsNullOrWhiteSpace(request.AvailabilityFilter))
+            {
+                var availability = Helper.SplitStateFilter(request.AvailabilityFilter);
+
+                dishes = dishes.Where(x =>
+                    availability.Contains("1") && x.IsAvailable ||
+                    availability.Contains("0") && !x.IsAvailable
+                );
+            }
             if (request.StateFilter is not null)
             {
                 var stateFilter = Helper.SplitStateFilter(request.StateFilter);
                 dishes = dishes.Where(x => stateFilter.Contains(x.State));
             }
 
-            // ✅ Orden por defecto (se respeta tu lógica)
+        
             request.Sort ??= "Category";
 
             var ordered = dishes
